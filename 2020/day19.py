@@ -18,7 +18,7 @@ def one(raw):
 
     @lru_cache(maxsize=None)
     def parse_rule(i):
-        if isinstance(rules[i], str): reutrn rules[i]
+        if isinstance(rules[i], str): return rules[i]
         frame = "({})" if "|" in rules[i] else "{}"
         return frame.format("".join(parse_rule(ptr, rules) for ptr in rules[i]))
 
@@ -33,7 +33,7 @@ def two(raw):
 
     @lru_cache(maxsize=None)
     def parse_rule(i):
-        if isinstance(rules[i], str): reutrn rules[i]
+        if isinstance(rules[i], str): return rules[i]
         frame = "({})" if "|" in rules[i] else "{}"
         return frame.format("".join(parse_rule(ptr, rules) for ptr in rules[i]))
 
