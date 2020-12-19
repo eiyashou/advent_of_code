@@ -10,45 +10,36 @@ def parse_data(raw):
     for line in r.split("\n"):
         if (p:=re.fullmatch(r"(\d+): (.+)", line)):
             i,rule = p.groups()
-            rules[int(i)] = rule.split(" ")
+            rules[int(i)] = rule.replace("\"","").split(" ")
 
     return rules, m.split("\n")
 
 def parse_rule(i, rules):
+    if type(rules[i]) == str:
+        return rules[i]
 
-    try:
-        if type(rules[i]) == str:
-            return rules[i].replace("\"","test")
+    for j, ptr in enumerate(rules[i]):
+        try: rules[i][j] = parse_rule(int(ptr), rules)
+        except: continue
+    
+    res = "".join(rules[i])
+    if "|" in rules[i]:
+        res = "("+res+")"
 
-        for j, ptr in enumerate(rules[i]):
-            try:
-                rules[i][j] = parse_rule(int(ptr), rules)
-            except:
-                continue
-        
-        res = "".join(rules[i]).replace("\"","")
-        if "|" in rules[i]:
-            res = "("+res+")"
-
-        rules[i] =  res.strip("\"")
-        return res.strip("\"")
-    except:
-        print(rules[i])
-        raise ValueError()
+    rules[i] =  res
+    return res
 
 def one(raw):
     rules, msgs = parse_data(raw)
 
     ptr = re.compile(parse_rule(0, rules))
-
     return sum(bool(ptr.fullmatch(line)) for line in msgs)
 
 def two(raw):
     rules, msgs = parse_data(raw)
     
-    rules[8] = ["(?P<eight>", "42", "|", "42", "(?&eight)", ")"]
-    rules[11] = ["?P<eleven>(", "42", "31", "|", "42", "(?&eleven)", "31", ")"]
+    rules[8] = ["?P<eight>", "42", "|", "42", "(?&eight)"]
+    rules[11] = ["?P<eleven>", "42", "31", "|", "42", "(?&eleven)", "31"]
     
     ptr = regex.compile(parse_rule(0, rules))
-
     return sum(bool(ptr.fullmatch(line)) for line in msgs)
