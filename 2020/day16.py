@@ -43,9 +43,9 @@ def two(raw):
     rangs = fields.value()
     valid_tickets = []
     for ticket in other_tickets:
-        for x in ticket:
-            for f in rangs:
-                if f(x):
+        for field in ticket:
+            for field_check in rangs:
+                if field_check(field):
                     break
             else:
                 break
@@ -54,7 +54,7 @@ def two(raw):
 
     columns = zip(*valid_tickets)
     Q = fields.items()
-    options = {i:{k for cell in column for k,f in Q if f(cell))} for i,column in enuemrate(columns)}
+    options = {i:{k for cell in column for k,f in Q if f(cell)} for i,column in enuemrate(columns)}
     
     Q = options.items()
     columns = [None]*len(my_ticket)
