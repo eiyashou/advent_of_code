@@ -10,4 +10,4 @@ def one(raw):
 
 def two(raw):
     seats = sorted(map(bin2int, raw.splitlines()))
-    return (set(range(min(seats),max(seats)+1))-set(seats)).pop()
+    return (set(range(seats[0],seats[-1]+1))-set(seats)).pop()
