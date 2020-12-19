@@ -6,36 +6,31 @@ sample='''X'''
 
 def one(raw):
 
-    chem = raw[0]
-    
-    for c in raw[1:]:
-
-        if chem != "" and chem[-1] != c and chem[-1].upper() == c.upper():
-            changes = True
-            chem = chem[:-1]
-        else:
-            chem += c
+    chem = ""
+    for c in raw:
+        chem = chem[:-1] if chem != "" and chem[-1] != c and chem[-1].upper() == c.upper() else c
 
     return len(chem)
     
-def two(R):
+def one_line(R):
+    l="";[(l:=l[:-1]if l!=""and l[-1]!=c and l[-1].upper()==c.upper()else c)for c in R];return len(l)
+
+def two(raw):
 
     minimum = None
     
     for ele in set(x.lower() for x in R):
         
-        raw = R.replace(ele,"").replace(ele.upper(),"")
+        raw_r = R.replace(ele,"").replace(ele.upper(),"")
         chem = ""
-        
-        for c in raw:
 
-            if chem != "" and chem[-1] != c and chem[-1].upper() == c.upper():
-                changes = True
-                chem = chem[:-1]
-            else:
-                chem += c
+        for c in raw_r:
+            chem = chem[:-1] if chem != "" and chem[-1] != c and chem[-1].upper() == c.upper() else c
         
         if minimum == None or minimum > len(chem):
             minimum = len(chem)
 
     return minimum
+
+def two_line(R):
+    return min([(l:=0),[(l:=l[:-1]if l!=""and l[-1]!=c and l[-1].upper()==c.upper()else c)for c in R.replace(e,"").replace(e.upper(),"")],len(l)][-1]for e in set(x.lower()for x in R))
