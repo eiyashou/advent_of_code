@@ -2,8 +2,6 @@ import sys, os, re, math, hashlib, itertools, functools, string
 from collections import namedtuple, defaultdict, Counter
 import numpy as np
 
-sample='''X'''
-
 def one(raw):
 
     chem = ""
