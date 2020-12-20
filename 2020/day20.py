@@ -58,19 +58,12 @@ def match_imgs(src,match,ori_src):
     
     m = np.matrix(match)
 
-    for _ in range(4):
-        m = np.rot90(m, k=1,axes=(0,1))
-
-        if bin2match == edge2bin(get_edge[ori_match](m)):
-            return m
-        
-    m = np.flip(m,axis=0)
-
-    for _ in range(4):
-        m = np.rot90(m, k=1,axes=(0,1))
-
-        if bin2match == edge2bin(get_edge[ori_match](m)):
-            return m
+    for _ in range(2):
+        for _ in range(4):
+            if bin2match == edge2bin(get_edge[ori_match](m)):
+                return m
+            m = np.rot90(m, k=1,axes=(0,1))
+        m = np.flip(m,axis=0)
 
 
 def mount_img(raw):
@@ -78,7 +71,6 @@ def mount_img(raw):
     edges_d, edges = to_edges(imgs)
 
     for ID,EDGES in edges_d.items():
-
         if all(edges.count(edge)==1 for edge in EDGES[:2]):
             break
     
@@ -112,11 +104,6 @@ def mount_img(raw):
             del imgs[k]
 
     return np.concatenate([np.concatenate([x[1:-1,1:-1] for x in row],axis=1) for row in rows],axis=0)
-
-
-def find_monster(img):
-    count = sum(x==MONSTER_COUNT for x in convolve(img, MONSTER).flatten().tolist())
-    return count
 
 def one(raw):
     imgs = parse_data(raw)    
