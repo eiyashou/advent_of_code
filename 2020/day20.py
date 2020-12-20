@@ -1,7 +1,5 @@
-import sys, os, re, math, hashlib, itertools, functools, string
-from collections import namedtuple, defaultdict, Counter
 import numpy as np
-from scipy.signal import convolve2d
+from scipy.signal import convolve
 
 
 MONSTER = [
@@ -122,7 +120,7 @@ def two(raw):
     
     for __ in range(2):
         for _ in range(4):
-            if (p:=sum(x==MONSTER_COUNT for x in convolve2d(img, MONSTER).flatten().tolist())):
+            if (p:=sum(x==MONSTER_COUNT for x in convolve(img, MONSTER).flatten().tolist())):
                 return np.sum(img)-MONSTER_COUNT*p
             img = np.rot90(img,k=1,axes=(0,1))
         img = np.flip(img,0)
