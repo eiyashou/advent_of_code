@@ -12,7 +12,6 @@ MONSTER_COUNT = "".join(MONSTER).count("#")
 MONSTER = np.matrix([[int(_=="#") for _ in __] for __ in MONSTER])
 edge2bin = lambda n : sum(2**i for i,bit in enumerate(n) if bit)
 
-
 get_edge = [
     lambda IMG : IMG[0,:].tolist()[0],
     lambda IMG : IMG[:,0].transpose().tolist()[0],
@@ -20,33 +19,23 @@ get_edge = [
     lambda IMG : IMG[:,-1].transpose().tolist()[0]
 ]
 
-
 def parse_data(raw):
-
     res = dict()
     for lines in raw.split("\n\n"):
         if lines == "":
             continue
-        
+
         img = lines.splitlines()
 
         ID  = int(re.search(r"(\d+)",img[0]).group(0))
         IMG = np.matrix([list(int(_=="#") for _ in __) for __ in img[1:]])
 
         res[ID] = IMG
-
     return res
 
 
 def to_edges(imgs):
-
-    edges_d = dict()
-
-    test = []
-
-    for ID,IMG in imgs.items():
-        edges_d[ID] = list(map(lambda n : min(edge2bin(n),edge2bin(reversed(n))), [x(IMG) for x in get_edge]))
-
+    edges_d = {ID:list(map(lambda n : min(edge2bin(n),edge2bin(reversed(n))), [x(IMG) for x in get_edge])) for ID,IMG in imgs.items()}
     return edges_d, [v for edges in edges_d.values() for v in edges]
 
 
@@ -56,7 +45,6 @@ def match_imgs(src,match,ori_src):
     ori_match = (ori_src+2)%4
     
     m = np.matrix(match)
-
     for _ in range(2):
         for _ in range(4):
             if bin2match == edge2bin(get_edge[ori_match](m)):
@@ -88,7 +76,7 @@ def mount_img(raw):
     L = len(first_row)
     rows = [first_row]
 
-    while len(imgs) > 0:
+    while imgs:
         new_row = [None for _ in range(L)]
         del_keys = set()
         for i,ref_img in enumerate(rows[-1]):
@@ -99,8 +87,7 @@ def mount_img(raw):
                     break
         rows.append(new_row)
         
-        for k in del_keys:
-            del imgs[k]
+        for k in del_keys: del imgs[k]
 
     return np.concatenate([np.concatenate([x[1:-1,1:-1] for x in row],axis=1) for row in rows],axis=0)
 
