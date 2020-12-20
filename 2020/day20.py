@@ -107,13 +107,11 @@ def mount_img(raw):
 
 def one(raw):
     imgs = parse_data(raw)    
-    
     edges_d, edges = to_edges(imgs)
 
     res = list()
     edges_aligned = []
     for ID,EDGES in edges_d.items():
-
         if sum(edges.count(edge)==1 for edge in EDGES) == 2:
             res.append(ID)
     
