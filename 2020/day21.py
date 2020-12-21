@@ -1,5 +1,6 @@
 from collections import defaultdict, Counter
 import re
+from libs.aux_funcs import Queue # Queue is just a normal queue with a few extra features that help me during debugging
 
 def parse_data(raw):
     food = defaultdict(set)
@@ -15,15 +16,16 @@ def parse_data(raw):
             food[alrgn] = food[alrgn]&ingrds if food[alrgn] else food[alrgn]|ingrds
     
     occupied = dict()
-    Q = list(food.items())
+    Q = Queue(sorted(food.items(), key = lambda x : len(x[1])))
 
     while Q:
-        alrgn, ingrds = Q.pop(0)
+        alrgn, ingrds = Q.pop()
         ingrds = ingrds - set(occupied.keys())
-        if len(ingrds) == 1: occupied[ingrds.pop()] = alrgn
-        else: Q.append((alrgn, ingrds))
-    
-    return occupied, all_ingreds
+        if len(ingrds) == 1: 
+            occupied[ingrds.pop()] = alrgn
+            if Q: Q = Queue(sorted(Q, key = lambda x : len(x[1])))
+            else: return occupied, all_ingreds
+        else: Q.append(alrgn, ingrds)
 
 def one(raw):
     pairs, all_ingreds = parse_data(raw)
