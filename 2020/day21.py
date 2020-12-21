@@ -15,15 +15,13 @@ def parse_data(raw):
             food[alrgn] = food[alrgn]&ingrds if food[alrgn] else food[alrgn]|ingrds
     
     occupied = dict()
+    Q = list(food.items())
     
-    while food:
-        decided_alrgn = [k for k,v in food.items() if len(v) == 1][0]
-        ingrd = food[decided_alrgn].pop()
-
-        occupied[ingrd] = decided_alrgn
-        del food[decided_alrgn]
-        for k,v in food.items():
-            food[k].discard(ingrd)
+    while Q:
+        alrgn, ingrds = Q.pop(0)
+        ingrds = ingrds - set(occupied.keys())
+        if len(ingrds) == 1: occupied[ingrds.pop()] = alrgn
+        else: Q.append((alrgn, ingrds))
     
     return all_ingreds, occupied
 
