@@ -16,23 +16,21 @@ def parse_data(raw):
     
     occupied = dict()
     Q = list(food.items())
-    
+
     while Q:
         alrgn, ingrds = Q.pop(0)
         ingrds = ingrds - set(occupied.keys())
         if len(ingrds) == 1: occupied[ingrds.pop()] = alrgn
         else: Q.append((alrgn, ingrds))
     
-    return all_ingreds, occupied
+    return occupied, all_ingreds
 
 def one(raw):
-    all_ingreds, pairs = parse_data(raw)
-    
+    pairs, all_ingreds = parse_data(raw)
     ingrd_count = Counter(all_ingreds)
     return sum(v for k,v in ingrd_count.items() if k not in pairs)
 
 def two(raw):
-    occupied = parse_data(raw)[1]
-    
+    occupied = parse_data(raw)[0]
     return ','.join(sorted(occupied.keys(), key=lambda x: occupied[x]))
 
