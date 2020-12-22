@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Advent of Code
 
 Here be my repo for my solutions.
@@ -30,14 +29,3 @@ Here be my repo for my solutions.
 | 23 | :star::star: |  |  |  |  |  |
 | 24 |  |  |  |  |  |  |
 | 25 |  |  |  |  |  |  |
-=======
-# Advent of Code
-
-Here be my repo for my solutions.
-
-| Day |      2015     | 2016 | 2017 | 2018 | 2019 | 2020 |
-|:---:|:-------------:|:----:|:----:|:----:|:----:|:----:|
-|  01 | :star: :star: |      |      |      |      |      |
-|  02 |               |      |      |      |      |      |
-|  03 |               |      |      |      |      |      |
->>>>>>> 7e19d54b668dc83f645fb53984738214ebc760ba
