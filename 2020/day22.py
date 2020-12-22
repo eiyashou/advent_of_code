@@ -21,13 +21,13 @@ def one(raw):
     return sum(a*i for i,a in enumerate(reversed(winner),1))
 
 def recursive_game(A,B):
-    prevA, prevB = set(),set()
+    prevA, prevB = set(), set()
     while A and B:
 
         tA = tuple(A)
         tB = tuple(B)
         if tA in prevA and tB in prevB:
-            return True, 0
+            return True, sum(a*i for i,a in enumerate(reversed(A),1))
         else:
             prevA.add(tA)
             prevB.add(tB)
@@ -35,7 +35,7 @@ def recursive_game(A,B):
         a = A.popleft()
         b = B.popleft()
 
-        winner = (a>b) if len(A) < a or len(B) < b else recursive_game(deque(islice(A,0,a)), deque(islice(B,0,b)))
+        winner = (a>b) if (len(A) < a or len(B) < b) else recursive_game(deque(islice(A,0,a)), deque(islice(B,0,b)))[0]
 
         if winner:
             A.append(a)
@@ -44,9 +44,9 @@ def recursive_game(A,B):
             B.append(b)
             B.append(a)
     
-    return bool(A)
+    return bool(A), sum(a*i for i,a in enumerate(reversed(A+B),1))
 
 def two(raw):
-    Aori,Bori = parse_data(raw)
-    winner = recursive_game(deque(Aori), deque(Bori))
-    return sum(a*i for i,a in enumerate(reversed(A if winner else B),1))
+    A,B = parse_data(raw)
+    winner = recursive_game(deque(A), deque(B))[1]
+    return winner
