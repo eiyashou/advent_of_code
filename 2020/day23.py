@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-
-import libs.aux_funcs as aux
-import re, math, itertools, functools, time
-from collections import defaultdict, Counter, deque
 
 def parse(raw):
     data=list(map(int,list(raw)))
@@ -37,9 +32,9 @@ class Node:
         n.next = self.next
         self.next = n
 
-def crabbygame(data,H,T):
+def crabbygame(data,T):
     L = LinkedList(data)
-    H += 1
+    H = max(data)+1
     PTR = L.start
 
     for t in range(T):
@@ -49,7 +44,6 @@ def crabbygame(data,H,T):
         cups = [ptr_ori_end.e for _ in range(3) if (ptr_ori_end:=ptr_ori_end.next)]
         ptr_ori_start = PTR.next
         PTR.next = ptr_ori_end.next
-        ptr_ori_end.next = None
 
         # Step 2 : Find destination cup
         dest = PTR.e
@@ -71,16 +65,15 @@ def crabbygame(data,H,T):
     return L
 
 def one(data):
-    ptr = crabbygame(data,9,100)[1].next
+    ptr = crabbygame(data,100)[1]
     res = ""
-    while ptr.e != 1:
+    while (ptr:=ptr.next).e != 1:
         res += str(ptr.e)
-        ptr = ptr.next
     return res
 
 def two(data):
     data += list(range(10,10**6+1))
 
-    L = crabbygame(data, 10**6, 10**7)
+    L = crabbygame(data, 10**7)
     ptr = L[1].next
     return ptr.e * ptr.next.e
