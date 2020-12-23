@@ -14,7 +14,7 @@ Here be my repo for my solutions.
 | 08 | :star::star: |  | :star::star: |  | :star: | :star::star: |
 | 09 | :star::star: | :star: | :star::star: |  | :star::star: | :star::star: |
 | 10 | :star::star: |  |  |  |  | :star::star: |
-| 11 | :star::star: |  |  |  |  | :star::star: |
+| 11 | :star::star: |  | :star::star: |  |  | :star::star: |
 | 12 | :star::star: | :star::star: |  |  |  | :star::star: |
 | 13 | :star::star: |  |  |  | :star: | :star::star: |
 | 14 | :star::star: |  |  |  |  | :star::star: |

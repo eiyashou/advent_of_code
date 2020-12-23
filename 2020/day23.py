@@ -41,7 +41,7 @@ def crabbygame(data,T):
         
         # Step 1 : Extract three-cups off
         ptr_ori_end = PTR
-        cups = [ptr_ori_end.e for _ in range(3) if (ptr_ori_end:=ptr_ori_end.next)]
+        cups = {ptr_ori_end.e for _ in range(3) if (ptr_ori_end:=ptr_ori_end.next)}
         ptr_ori_start = PTR.next
         PTR.next = ptr_ori_end.next
 
@@ -61,6 +61,38 @@ def crabbygame(data,T):
 
         # Step 4 : next cup (DONE)
         PTR = PTR.next
+
+    return L
+
+def crabbygame2(data,T):
+    L = {k:v for k,v in zip(data, data[1:]+data[:1])}
+    H = max(data)+1
+    PTR = data[0]
+
+    for t in range(T):
+        
+        # Step 1 : Extract three-cups off
+        ptr_ori_end = PTR
+        cups = {ptr_ori_end.e for _ in range(3) if (ptr_ori_end:=L[ptr_ori_end])}
+        ptr_ori_start = L[PTR]
+        L[PTR] = L[ptr_ori_end]
+
+        # Step 2 : Find destination cup
+        dest = PTR
+        while True:
+            dest = (dest-1)%H
+            if dest not in cups and dest != 0:
+                break
+        
+        # Step 3 : Assemble back the cups
+        ptr_dest_start = dest
+        ptr_dest_end = L[ptr_dest_start]
+
+        L[ptr_dest_start] = ptr_ori_start
+        Lptr_ori_end] = ptr_dest_end
+
+        # Step 4 : next cup (DONE)
+        PTR = L[PTR]
 
     return L
 
