@@ -1,12 +1,5 @@
 #!/usr/bin/env python
 
-import libs.aux_funcs as aux
-from collections import defaultdict, Counter
-import re, math
-
-with open(f"data/aoc/inputs/2017/day11.txt", "r") as f:
-    raw = f.read()
-
 class V:
 
     def __init__(self,x=0,y=0,z=0):
@@ -51,8 +44,3 @@ def two(data):
         if m > maximum:
             maximum = m
     return maximum
-
-
-if __name__=="__main__":
-    aux.timeit(one, parse(raw))
-    #aux.timeit(two, parse(raw))
