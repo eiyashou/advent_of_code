@@ -6,7 +6,7 @@ Here be my repo for my solutions.
 |:---:|:-------------:|:----:|:----:|:----:|:----:|:----:|
 | 01 | :star::star: | :star::star: | :star::star: | :star::star: | :star::star: | :star::star: |
 | 02 | :star::star: | :star::star: | :star::star: | :star: | :star::star: | :star::star: |
-| 03 | :star::star: | :star::star: | :star: | :star::star: | :star::star: | :star::star: |
+| 03 | :star::star: | :star::star: | :star::star: | :star::star: | :star::star: | :star::star: |
 | 04 | :star::star: | :star::star: | :star::star: |  | :star::star: | :star::star: |
 | 05 | :star::star: | :star::star: | :star::star: | :star::star: | :star::star: | :star::star: |
 | 06 | :star::star: | :star::star: | :star::star: |  |  | :star::star: |
