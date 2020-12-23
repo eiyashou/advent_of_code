@@ -26,6 +26,6 @@ Here be my repo for my solutions.
 | 20 | :star: |  |  |  |  | :star::star: |
 | 21 | :star::star: |  |  |  |  | :star::star: |
 | 22 |  |  |  |  |  | :star::star: |
-| 23 | :star::star: |  |  |  |  |  |
+| 23 | :star::star: |  |  |  |  | :star::star: |
 | 24 |  |  |  |  |  |  |
 | 25 |  |  |  |  |  |  |

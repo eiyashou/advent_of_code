@@ -2,11 +2,6 @@ import sys, os, re, math, hashlib, itertools, string
 from collections import namedtuple, defaultdict, Counter
 import numpy as np
 
-"""
-Templates:
-aoctemp  --> This.
-"""
-
 sample='''X'''
 
 def parse(raw):
