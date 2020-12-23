@@ -1,11 +1,6 @@
 #!/usr/bin/env python
 
-import libs.aux_funcs as aux
-import re, math, itertools
-
-
-sample=''''''
-
+import itertools
 
 with open(f"data/aoc/inputs/2017/day3.txt", "r") as f:
     raw = f.read()
@@ -54,8 +49,3 @@ def two(data):
                 return val
             else:
                 grid[x,y] = val 
-
-
-if __name__=="__main__":
-    aux.timeit(one, parse(raw))
-    aux.timeit(two, parse(raw))
