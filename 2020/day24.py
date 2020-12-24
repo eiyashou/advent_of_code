@@ -20,15 +20,6 @@ class V:
         else:
             return self.__add__(o)
     
-    def __abs__(self):
-        return max((abs(self.x),abs(self.y),abs(self.z)))
-    
-    def __str__(self):
-        return f"({self.x},{self.y},{self.z})"
-    
-    def __hash__(self):
-        return hash((self.x, self.y, self.z))
-    
     def __call__(self):
         return (self.x, self.y, self.z)
 
@@ -59,18 +50,18 @@ def parse(raw):
 def one(data):
     black = set()
     for line in data:
-        final = sum(line)
-        if hash(final) in black: black.remove(hash(final))
-        else: black.add(hash(final))
+        final = sum(line)()
+        if final in black: black.remove(final)
+        else: black.add(final)
     return len(black)
 
 def two(data):
 
     black = set()
     for line in data:
-        final = sum(line)
-        if final() in black: black.remove(final())
-        else: black.add(final())
+        final = sum(line)()
+        if final in black: black.remove(final)
+        else: black.add(final)
 
     adj = list(v() for v in hex2threedee.values())
     for _ in range(1,100+1):
