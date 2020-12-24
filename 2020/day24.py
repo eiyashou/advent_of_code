@@ -33,18 +33,8 @@ hex2threedee = {
     "se": V(0,-1,1)
 }
 
-with open("data/aoc/inputs/2020/day24.txt", "r") as f:
-    raw = f.read()
-
 def parse(raw):
-    data=[]
-    for line in raw.splitlines():
-        row = []
-        for p in re.findall(r"(e|w|nw|ne|se|sw)", line):
-            row.append(hex2threedee[p])
-        data.append(row)
-
-    return data
+    return [tuple(map(lambda n : hex2threedee[n], re.findall(r"(e|w|nw|ne|se|sw)", line))) for line in raw.splitlines()]
 
 
 def one(data):
