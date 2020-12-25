@@ -28,4 +28,4 @@ Here be my repo for my solutions.
 | 22 |  |  |  |  |  | :star::star: |
 | 23 | :star::star: |  |  |  |  | :star::star: |
 | 24 |  |  |  |  |  | :star::star: |
-| 25 |  |  |  |  |  | :star: |
+| 25 |  |  |  |  |  | :star::star: |
