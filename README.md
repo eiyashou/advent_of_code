@@ -47,8 +47,4 @@ Solutions grouped by year/day:
 
 Eventually:tm: there will be visualizations of:
 DAY13 YEAR2019
-<<<<<<< HEAD
 DAY23 YEAR2019
-=======
-DAY23 YEAR2019
->>>>>>> 9fa4a8d35c1517d410ba5a96d410f48741f9e7d5
