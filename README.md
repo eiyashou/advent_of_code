@@ -4,7 +4,7 @@ Here be my repo for my solutions.
 
 Solutions grouped by lang/year:
 
-| Year(/50) | Python |   C   | Haskell | HTML+JS |
+| Year(/50) | Python | C/C++ | Haskell | HTML+JS |
 |:---------:|:------:|:-----:|:-------:|:-------:|
 |    2015   |   41   |   0   |    0    |    0    |
 |    2016   |   15   |   0   |    0    |    0    |
