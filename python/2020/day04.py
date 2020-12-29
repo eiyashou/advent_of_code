@@ -1,6 +1,7 @@
-import sys, os, re, math, hashlib, itertools, string
-from collections import namedtuple, defaultdict, Counter
-import numpy as np
+#!/usr/var/env python3.9
+
+import testfunc as aux
+import sys, re
 
 checks = {
     "valid": lambda n : len(n)==8 or (len(n)==7 and 'cid' not in n)
@@ -15,9 +16,16 @@ checks = {
     "in" : lambda n : 59<= int(n) <=76
 }
 
-def one(R):
-    return sum(checks["valid"](F) for f in R.split("\n\n")if(F:=f.replace("\n"," ").split(" ")))
+def parse(raw):
+    return [{D[:3]:D[4:].strip()} for d in raw.split("\n\n") for D in d.replace("\n"," ").split()]
 
-def two(raw):
-    passports = [{D[:3]:D[4:].strip()} for d in raw.split("\n\n") for D in d.replace("\n"," ").split()]
-    return sum(checks["valid"](p) and all(checks[k](v) for k,v in p.items()) for p in passports)
+def one(data):
+    return sum(map(checks["valid"], data))
+
+def two(data):
+    return sum((checks["valid"](p) and all(checks[k](v) for k,v in p.items()) for p in data))
+
+if __name__ == "__main__":
+    data=aux.timeit(parse, open(sys.argv[1], "r").read(), print_res=False)
+    aux.timeit(one, data)
+    aux.timeit(two, data)

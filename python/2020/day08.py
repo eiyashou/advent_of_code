@@ -1,19 +1,17 @@
-import sys, os, re, math, hashlib, itertools, string
-from collections import namedtuple, defaultdict, Counter
-import numpy as np
+#!/usr/var/env python3.9
 
-def data_parse(data):
+import testfunc as aux
+import sys
+
+def parse(data):
     return [[n, int(p) for n,p in x.split(" ")] for x in data.split("\n")]
 
-def one(raw, pop=False):
-    data = data_parse(raw)
-    L = len(data)
-
+def one(data, pop=False):
     acc = 0
     pc = 0
     visited = []
     
-    while pc not in visited or pc < L:
+    while pc not in visited or pc < len(data):
             
         visited.append(pc)
         
@@ -32,11 +30,9 @@ def one(raw, pop=False):
     else: 
         return acc
 
-def two(raw):
-    script = data_parse(raw)    
-    L = len(Script)
+def two(Script):
     
-    fails = part_one(raw, True)
+    fails = part_one(data, True)
     
     for fail in fails:
         
@@ -52,7 +48,7 @@ def two(raw):
         
         while pc not in visited:
 
-            if pc >= L:
+            if pc >= len(script):
                 return acc
                 
             visited.append(pc)
@@ -66,3 +62,8 @@ def two(raw):
                 pc += val
             elif cmd == "nop":
                 pc += 1
+
+if __name__ == "__main__":
+    data=aux.timeit(parse, open(sys.argv[1], "r").read(), print_res=False)
+    aux.timeit(one, data)
+    aux.timeit(two, data)

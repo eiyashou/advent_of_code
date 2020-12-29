@@ -2,6 +2,8 @@ import sys, os, re, math, hashlib, itertools, string
 from collections import namedtuple, defaultdict, Counter
 import numpy as np
 
+# TODO: convert to new system. fuck this.
+
 class Tile():
 
     def __init__(self, state):
