@@ -45,6 +45,6 @@ Solutions grouped by year/day:
 
 ### Visualizations
 
-Eventually:tm: there will be visualizations of:
-DAY13 YEAR2019
+Eventually:tm: there will be visualizations of:<br>
+DAY13 YEAR2019<br>
 DAY23 YEAR2019
