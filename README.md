@@ -11,7 +11,8 @@ Solutions grouped by lang/year:
 |    2017   |   20   |   0   |    0    |    0    |
 |    2018   |    7   |   0   |    0    |    0    |
 |    2019   |   21   |   0   |    0    |    0    |
-|    2020   |   ALL  |   0   |    0    |    0    |
+|    2020   |   50   |   0   |    6    |    0    |
+|   Overall |   155  |   0   |    6    |    0    | 
 
 Solutions grouped by year/day:
 
@@ -47,4 +48,5 @@ Solutions grouped by year/day:
 
 Eventually:tm: there will be visualizations of:<br>
 DAY13 YEAR2019<br>
-DAY23 YEAR2019
+DAY23 YEAR2019<br>
+DAY23 YEAR2020
