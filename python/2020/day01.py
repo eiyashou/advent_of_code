@@ -13,7 +13,7 @@ def one(nums):
 
 def two(nums):
     for i,n1 in enumerate(nums):
-        for n2 in nums[i:]
+        for n2 in nums[i:]:
             if 2020-n1-n2 in nums:
                 return n1*n2*(2020-n1-n2)
 
