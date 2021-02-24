@@ -4,15 +4,15 @@ Here be my repo for my solutions.
 
 Solutions grouped by lang/year:
 
-| Year(/50) | Python | Rust | Haskell | C | Java | JS |
-|:---------:|:------:|:----:|:-------:|:-:|:----:|:--:|
-|    2015   |   41   |   0  |    6    | 0 |   0  |  0 |
-|    2016   |   15   |   0  |    0    | 0 |   0  |  0 |
-|    2017   |   20   |   0  |    0    | 0 |   0  |  0 |
-|    2018   |    7   |   0  |    0    | 0 |   0  |  0 |
-|    2019   |   21   |   0  |    0    | 0 |   0  |  0 |
-|    2020   |   50   |   0  |    8    | 0 |   0  |  0 |
-|   Overall |   155  |   0  |   14    | 0 |   0  |  0 |
+| Year(/50) | Python | Rust | Haskell | C |  Lua |
+|:---------:|:------:|:----:|:-------:|:-:|:----:|
+|    2015   |   41   |   0  |    6    | 0 |   0  |
+|    2016   |   15   |   0  |    0    | 0 |   0  |
+|    2017   |   20   |   0  |    0    | 0 |   0  |
+|    2018   |    7   |   0  |    0    | 0 |   0  |
+|    2019   |   21   |   0  |    0    | 0 |   0  |
+|    2020   |   50   |   0  |    8    | 0 |   0  |
+|   Overall |   155  |   0  |   14    | 0 |   0  |
 
 Solutions grouped by year/day:
 
@@ -43,10 +43,3 @@ Solutions grouped by year/day:
 | 23 | :star::star: |  |  |  | :star::star: | :star::star: |
 | 24 |  |  |  |  |  | :star::star: |
 | 25 |  |  |  |  |  | :star::star: |
-
-### Visualizations
-
-Eventually:tm: there will be visualizations of:<br>
-DAY13 YEAR2019<br>
-DAY23 YEAR2019<br>
-DAY23 YEAR2020
